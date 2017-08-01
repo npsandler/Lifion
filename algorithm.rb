@@ -1,11 +1,9 @@
 
-# I was unclear by the wording of the problem whether be finding the most common specific
-# vehicles or more specific models/categories, so I wrote both!
+# I was unclear by the wording of the problem whether be finding the most frequent specific
+# vehicle rentals or most frequent models/categories, so I wrote both!
 
 
 # Assuming we have access to vehicles/rentals and associations set up using an ORM.
-
-
 
 def top_five_vehicles
   rentals = Rental.all
@@ -14,8 +12,8 @@ def top_five_vehicles
     reservations[rental.vehicle_id] += 1
   end
 
-  top_vehicles = reservations.sort { |_, v| v }.reverse
-  top_vehicles.take(5)
+  top_vehicles = reservations.sort { | _, v| v }.reverse
+  top_vehicles.keys.take(5)
 end
 
 
